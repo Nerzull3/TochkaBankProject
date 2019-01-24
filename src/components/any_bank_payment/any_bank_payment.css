@@ -1,0 +1,273 @@
+.user-filling-data__credit-card
+{
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+
+    padding: 20px;
+    border: 1px solid #e9e8e8;
+    border-radius: 20px;
+    box-shadow: 1px 5px 10px 2px #e9e8e8;
+
+    background-color: #f0f0f0;
+}
+
+.card-data__input
+{
+    display: grid;
+    grid-template: 'number number' 80px
+                    'date cvc' 80px
+                    / 200px 200px;
+}
+
+.card-icons
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card__fill-area
+{
+    position: relative;
+}
+
+.card-number__input:invalid ~ .card-number__error-handler,
+.card-issue-date__input:invalid ~ .card-issue-date__error-handler,
+.card-cvc__input:invalid ~ .card-cvc__error-handler
+{
+    display: block;
+}
+
+.card__input
+{
+    font-size: 24px;
+
+    margin: 20px;
+    border: none;
+    border-bottom: 1px solid #808080;
+
+    background-color: transparent;
+}
+
+.card-number
+{
+    grid-area: number;
+}
+
+.card-number__input
+{
+    width: 85%;
+}
+
+.error-handler
+{
+    color: #f00;
+    font-size: 14px;
+
+    position: absolute;
+    left: 5%;
+    top: 65%;
+
+    display: none;
+}
+
+.error-handler::before
+{
+    content: '*';
+}
+
+.card-issue-date
+{
+    grid-area: date;
+}
+
+.card-issue-date__input
+{
+    width: 70%;
+}
+
+.card-cvc
+{
+    grid-area: cvc;
+}
+
+.card-cvc__input
+{
+    width: 70%;
+}
+
+.list-item__value
+{
+    border: none;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.button-item
+{
+    position: relative;
+    width: 220px;
+    height: 60px;
+
+    margin-top: 20px;
+    padding-left: 10px;
+
+    background-image: url(./button-back.png);
+    background-repeat: no-repeat;
+    background-size: 220px 60px;
+}
+
+.button-item__pay-button
+{
+    width: 180px;
+    height: 46px;
+
+    border: 2px solid #000;
+    background-color: rgba(0, 0, 0, 0);
+
+    font-weight: 600;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition-duration: 1s;
+}
+
+.button-item__pay-button:hover
+{
+    background-color: #fff;
+}
+
+.string-selector__input-1,
+.string-selector__input-2,
+.string-selector__input-3
+{
+    display: none;
+}
+
+@media screen and (min-width: 1200px)
+{
+    .card-data__input-fields
+    {
+        display: grid;
+        grid-template-columns: 400px 1fr;
+    }
+
+    .user-filling-data__data-for-sending
+    {
+        margin: 0 20px;
+    }
+
+    .list-item__text
+    {
+        width: 150px;
+
+        margin: 10px 10px;
+
+        font-size: 18px;
+    }
+
+    .list-item__value
+    {
+        width: 200px;
+
+        font-size: 1em;
+    }
+}
+
+@media screen and (min-width: 730px) and (max-width: 1200px)
+{
+    .card-data__input-fields
+    {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .card__input
+    {
+        font-size: 1em;
+    }
+
+    .user-filling-data__data-for-sending
+    {
+        margin: 20px 0;
+        padding: 0;
+    }
+
+    .user-filling-data__data-for-sending .list-item
+    {
+        margin: 10px 0;
+    }
+
+    .list-item__text
+    {
+        width: 150px;
+
+        margin: 10px 10px;
+
+        font-size: 1em;
+    }
+
+    .list-item__value
+    {
+        width: 200px;
+
+        font-size: 1em;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 730px)
+{
+    .user-filling-data__credit-card
+    {
+        width: 280px;
+        height: 160px;
+    }
+
+    .card-data__input
+    {
+        width: 280px;
+        height: 120px;
+
+        display: grid;
+        grid-template: 'number number' 60px
+                        'date cvc' 60px
+                        / 140px 140px;
+    }
+
+    .card__input
+    {
+        font-size: 87%;
+    }
+
+    .error-handler
+    {
+        font-size: 70%;
+    }
+
+    .user-filling-data__data-for-sending
+    {
+        margin: 20px 0;
+        padding: 0;
+    }
+
+    .user-filling-data__data-for-sending .list-item
+    {
+        margin: 10px 0;
+    }
+
+    .list-item__text
+    {
+        width: 150px;
+
+        margin: 8px 10px;
+
+        font-size: 87%;
+    }
+
+    .list-item__value
+    {
+        width: 200px;
+
+        font-size: 87%;
+    }
+}

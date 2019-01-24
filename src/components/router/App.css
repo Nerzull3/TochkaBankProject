@@ -1,0 +1,47 @@
+.main-content__query
+{
+    margin-top: 60px;
+
+    display: flex;
+    justify-content: flex-start;
+}
+
+.query__headline
+{
+    margin-right: 30px;
+    padding: 10px;
+
+    font-size: 24px;
+}
+
+.query__label
+{
+    margin-right: 30px;
+    padding: 10px;
+
+    font-size: 24px;
+
+    background-color: #fff;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 730px) and (max-width: 1200px)
+{
+    .query__label,
+    .query__headline
+    {
+        font-size: 110%;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 730px)
+{
+    .query__headline,
+    .query__label,
+    .payment-option__option
+    {
+        margin-right: 10px;
+
+        font-size: 87%;
+    }
+}

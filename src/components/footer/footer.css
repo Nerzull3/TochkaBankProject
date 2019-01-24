@@ -1,0 +1,97 @@
+.footer-content
+{
+    margin: 50px auto 10px;
+    padding: 10px;
+    border-top: 2px solid #d3d3d3;
+}
+
+.footer-content__row
+{
+    margin: 50px;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+}
+
+.list-item__link
+{
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    border-radius: 24px;
+
+    margin: 10px;
+
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.4em;
+
+    background-color: #242424;
+
+    transition-duration: .6s;
+}
+
+.item-link
+{
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    color: #d3d3d3;
+
+    transition-duration: .6s;
+}
+
+.list-item__link-1::before
+{
+    content: 'f';
+}
+
+.list-item__link-2::before
+{
+    content: 'vk';
+}
+
+.list-item__link-3::before
+{
+    content: 'inst';
+}
+
+.list-item__link-4::before
+{
+    content: 'mail';
+}
+
+.list-item__link-5::before
+{
+    content: 'ok';
+}
+
+.list-item__link:hover
+{
+    background-color: #00a3da;
+}
+
+.list-item__link:hover > .item-link
+{
+    color: #fff;
+}
+
+@media screen and (min-width: 375px) and (max-width: 730px)
+{
+    .footer-content__row
+    {
+        margin: 30px 0;
+
+        font-size: 87%;
+    }
+
+    .list-item__link
+    {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 20px;
+    }
+}

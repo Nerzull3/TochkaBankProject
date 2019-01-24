@@ -1,0 +1,157 @@
+.company-content__headline
+{
+    margin-top: 100px;
+}
+
+.company-content__photocards
+{
+    padding: 0;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.photocard
+{
+    max-width: 300px;
+
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #d3d3d3;
+
+    text-align: center;
+
+    box-shadow: 1px 5px 5px 1px #d3d3d3;
+    cursor: pointer;
+
+    transition-duration: .7s;
+}
+
+.photocard:hover
+{
+    transform: scale(1.1);
+}
+
+.photocard__image-area
+{
+    margin: 0;
+}
+
+.photocard-image
+{
+    width: 100%;
+    max-width: 300px;
+
+    margin-bottom: 20px;
+}
+
+.photocard-image__description
+{
+    font-size: 20px;
+}
+
+.photocard-name
+{
+    margin: 10px 0;
+}
+
+.company-content__additional-description
+{
+    margin: 120px 10px 20px;
+
+    width: 100%;
+    max-width: 700px;
+
+    font-size: 18px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.show-option__label
+{
+    margin: 50px 10px;
+    display: block;
+
+    cursor: pointer;
+}
+
+.show-hide-option
+{
+    display: none;
+}
+
+.show-hide-option:checked ~ .company-content__additional-description
+{
+    overflow: visible;
+    white-space: normal;
+}
+
+.show-hide-option:checked ~ .show-option__label
+{
+    display: none;
+}
+
+.hide-option__label
+{
+    margin: 50px 10px;
+    display: none;
+
+    cursor: pointer;
+}
+
+.show-hide-option:checked ~ .hide-option__label
+{
+    display: block;
+}
+
+@media screen and (min-width: 1200px)
+{
+    .photocard
+    {
+        width: 25%;
+    }
+}
+
+@media screen and (min-width: 730px) and (max-width: 1200px)
+{
+    .main-content__company-content,
+    .company-content__additional-description
+    {
+        font-size: 1em;
+    }
+
+    .company-content__photocards
+    {
+        justify-content: flex-start;
+    }
+
+    .photocard
+    {
+        min-width: 200px;
+        width: 25%;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 730px)
+{
+    .main-content__company-content,
+    .company-content__additional-description
+    {
+        font-size: 87%;
+    }
+
+    .company-content__photocards
+    {
+        justify-content: flex-start;
+    }
+
+    .photocard
+    {
+        min-width: 220px;
+        width: 45%;
+    }
+}
