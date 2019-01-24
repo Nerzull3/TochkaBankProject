@@ -7,12 +7,12 @@ export default {
     photocard2: {
         source: "/",
         description: "Пляж \"Карон\"",
-        price: "200 рублей"
+        price: "500 рублей"
     },
     photocard3: {
         source: "/",
         description: "Пляж \"Карон\"",
-        price: "200 рублей"
+        price: "1000 рублей"
     },
     photocard4: {
         source: "/",
@@ -22,11 +22,11 @@ export default {
     photocard5: {
         source: "/",
         description: "Пляж \"Карон\"",
-        price: "200 рублей"
+        price: "300 рублей"
     },
     photocard6: {
         source: "/",
         description: "Пляж \"Карон\"",
-        price: "200 рублей"
+        price: "299 рублей"
     }
 };

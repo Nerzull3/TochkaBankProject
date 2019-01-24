@@ -96,10 +96,33 @@
     width: 70%;
 }
 
+.input-wrapper
+{
+    position: relative;
+}
+
 .list-item__value
 {
+    display: block;
     border: none;
     border-bottom: 1px solid #d3d3d3;
+}
+
+.list-item__value:valid
+{
+    border-bottom: 3px solid #90ee90;
+}
+
+.list-item__value:invalid
+{
+    border-bottom: 3px solid #f00;
+}
+
+.list-item__value:invalid ~ .sum__error-handler
+{
+    display: block;
+
+    top: 80%;
 }
 
 .button-item
@@ -127,14 +150,13 @@
     font-weight: 600;
     font-size: 14px;
 
-    cursor: pointer;
-
     transition-duration: 1s;
 }
 
-.button-item__pay-button:hover
+.button-item__pay-button:hover:not(:disabled)
 {
     background-color: #fff;
+    cursor: pointer;
 }
 
 .string-selector__input-1,
@@ -255,6 +277,13 @@
         margin: 10px 0;
     }
 
+    .input-wrapper
+    {
+        min-width: 180px;
+        width: 50%;
+        max-width: 220px;
+    }
+
     .list-item__text
     {
         width: 150px;
@@ -266,7 +295,9 @@
 
     .list-item__value
     {
-        width: 200px;
+        min-width: 180px;
+        width: 50%;
+        max-width: 220px;
 
         font-size: 87%;
     }

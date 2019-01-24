@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Navigation from '../components/navigation/navigation';
-import AnyBankPaymentForm from '../components/any_bank_payment/any_bank_payment';
-import YourBankPaymentForm from '../components/your_bank_payment/your_bank_payment';
-import RequestPaymentForm from '../components/request_payment/request_payment';
+import Navigation from './navigation/navigation';
+import AnyBankPaymentForm from './any_bank_payment/any_bank_payment';
+import YourBankPaymentForm from './your_bank_payment/your_bank_payment';
+import RequestPaymentForm from './request_payment/request_payment';
 
 class Payment extends Component {
     render() {

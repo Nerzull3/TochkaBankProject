@@ -1,3 +1,8 @@
+.main-wrapper
+{
+    background-color: #fff;
+}
+
 .main-content__query
 {
     margin-top: 60px;
@@ -25,8 +30,21 @@
     cursor: pointer;
 }
 
+@media screen and (min-width: 1200px)
+{
+    .main-wrapper
+    {
+        padding: 20px 70px;
+    }
+}
+
 @media screen and (min-width: 730px) and (max-width: 1200px)
 {
+    .main-wrapper
+    {
+        padding: 20px 40px;
+    }
+
     .query__label,
     .query__headline
     {
@@ -36,6 +54,11 @@
 
 @media screen and (min-width: 375px) and (max-width: 730px)
 {
+    .main-wrapper
+    {
+        padding: 20px 30px;
+    }
+
     .query__headline,
     .query__label,
     .payment-option__option

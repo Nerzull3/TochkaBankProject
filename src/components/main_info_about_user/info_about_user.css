@@ -88,12 +88,6 @@
 
 @media screen and (min-width: 730px) and (max-width: 1200px)
 {
-    body
-    {
-        margin: 0 100px;
-        padding: 20px 40px;
-    }
-
     .logo__image
     {
         width: 200px;
@@ -107,12 +101,6 @@
 
 @media screen and (min-width: 375px) and (max-width: 730px)
 {
-    body
-    {
-        margin: 0 10px;
-        padding: 20px 30px;
-    }
-
     .headline
     {
         flex-direction: column;
