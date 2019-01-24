@@ -24,6 +24,7 @@ class AnyBankPaymentForm extends Component {
                                     maxlength="16"
                                     pattern="\d{16}"
                                     placeholder="Введите номер карты"
+                                    required
                                 />
                                 <div class="card-number__error-handler error-handler">
                                     Символами могут быть только цифры. Ровно 16 символов
@@ -36,6 +37,7 @@ class AnyBankPaymentForm extends Component {
                                     maxlength="4"
                                     pattern="\d{4}"
                                     placeholder="ММ/ГГ"
+                                    required
                                 />
                                 <div class="card-issue-date__error-handler error-handler">
                                     Символами могут быть только цифры
@@ -48,6 +50,7 @@ class AnyBankPaymentForm extends Component {
                                     maxlength="3"
                                     pattern="\d{3}"
                                     placeholder="CVC"
+                                    required
                                 />
                                 <div class="card-cvc__error-handler error-handler">
                                     Символами могут быть только цифры

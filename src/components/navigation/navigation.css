@@ -18,10 +18,16 @@
     color: #00a3da;
 }
 
-.payment-option__option::before
+.option-1::before
 {
-    content: url(./credit-card.svg);
-    vertical-align: middle;
+    content: url(./svg_images/credit-card.svg);
+    vertical-align: top;
+}
+
+.option-2::before
+{
+    content: url(./svg_images/computer.svg);
+    vertical-align: top;
 }
 
 .link_activated
