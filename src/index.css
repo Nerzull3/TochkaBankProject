@@ -69,7 +69,7 @@ body
     padding: 10px;
 }
 
-.button-type-2
+.button-type-2:hover:not(:disabled)
 {
     cursor: pointer;
 }

@@ -113,11 +113,6 @@
     border-bottom: 3px solid #90ee90;
 }
 
-.list-item__value:invalid
-{
-    border-bottom: 3px solid #f00;
-}
-
 .list-item__value:invalid ~ .sum__error-handler
 {
     display: block;

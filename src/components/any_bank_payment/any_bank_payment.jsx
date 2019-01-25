@@ -1,26 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './any_bank_payment.css';
 import visa from './svg_images/visa.svg';
 import mc1 from './svg_images/mastercard.svg';
 import mc2 from './svg_images/mastercard-2.svg';
+import AnyBankValidation from '../validations/any_bank_validation';
 
-class AnyBankPaymentForm extends Component {
-    state = {
-        cardNumber: '',
-        cardIssueDate: '',
-        cardCVC: '',
-        sum: '',
-        comment: '',
-        mail: '',
-
-        cardNumberValid: false,
-        cardIssueDateValid: false,
-        cardCVCValid: false,
-        sumValid: false,
-        mailValid: true,
-        formValid: false
-    };
-
+class AnyBankPaymentForm extends AnyBankValidation {
     render() {
         return (
             <section className="main-content__user-filling-data-1">
@@ -82,7 +67,7 @@ class AnyBankPaymentForm extends Component {
                     <ul className="user-filling-data__data-for-sending">
                         <li className="list-item sum-item display_flex_yes">
                             <span className="list-item__text sum text_bold_yes">Сумма</span>
-                            <div class="input-wrapper">
+                            <div className="input-wrapper">
                                 <input
                                     type="text"
                                     className="list-item__text list-item__value sum__value"
@@ -100,7 +85,7 @@ class AnyBankPaymentForm extends Component {
                         </li>
                         <li className="list-item comment-item display_flex_yes">
                             <span className="list-item__text comment text_bold_yes">Комментарий</span>
-                            <div class="input-wrapper">
+                            <div className="input-wrapper">
                                 <input
                                     type="text"
                                     className="list-item__text list-item__value comment__value"
@@ -113,7 +98,7 @@ class AnyBankPaymentForm extends Component {
                         </li>
                         <li className="list-item email-item display_flex_yes">
                             <span className="list-item__text email text_bold_yes">Ваша эл. почта</span>
-                            <div class="input-wrapper">
+                            <div className="input-wrapper">
                                 <input
                                     type="email"
                                     className="list-item__text list-item__value email__value"
@@ -139,53 +124,6 @@ class AnyBankPaymentForm extends Component {
                 </form>
             </section>
         );
-    }
-
-    handleUserInput = (e) => {
-        const name = e.target.name;
-        const value = e.target.value;
-        this.setState({[name]: value}, () => {this.validateField(name, value)});
-    }
-
-    validateField(field, value) {
-        switch(field) {
-            case 'card-number':
-                this.state.cardNumberValid = value.match(/\d{16}/);
-                break;
-            case 'card-issue-date':                
-                const matched = /(\d{2})\/(\d{2})/g.exec(value);
-                if (matched) {
-                    const [month, year] = [parseInt(matched[1]), parseInt('20' + matched[2])];
-                    const monthIsInRange = 0 < month && month < 13;
-                    const yearNow = parseInt(new Date().getFullYear());
-                    const isValidData = year > yearNow || (year === yearNow && month >= parseInt(new Date().getMonth()));
-                    this.state.cardIssueDateValid = monthIsInRange && isValidData;
-                }
-                else {
-                    this.state.cardIssueDateValid = false;
-                }
-                break;
-            case 'card-cvc':
-                this.state.cardCVCValid = value.match(/\d{3}/);
-                break;
-            case 'sum':
-                this.state.sumValid = value.match(/\d{4,5}/) && 1000 <= parseInt(value) && parseInt(value) <= 75000;
-                break;
-            case 'mail':
-                this.state.mailValid = /.+@\w+\.(ru|com)/.test(value) || value.length === 0;
-                console.log(/.+@\w+\.(ru|com)/.test(value));
-                break;
-            default:
-                break;
-        }
-        this.validateForm();
-    }
-
-    validateForm() {
-        this.setState({
-            formValid: this.state.cardNumberValid && this.state.cardIssueDateValid &&
-                        this.state.cardCVCValid && this.state.sumValid && this.state.mailValid
-        });
     }
 }
 
