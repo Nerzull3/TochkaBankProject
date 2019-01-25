@@ -1,4 +1,5 @@
 import React from 'react';
+import InputMask from 'react-input-mask';
 import './your_bank_payment.css';
 import YourBankValidation from '../validations/your_bank_validation';
 
@@ -7,7 +8,7 @@ class YourBankPaymentForm extends YourBankValidation {
         return (
             <section className="main-content__user-filling-data-2">
                 <h3 className="user-filling-data-2__headline">Сформируйте платёжку и загрузите её в свой банк для подписи</h3>
-                <form method="post">
+                <form action="/your_bank_payment" method="post">
                     <ul className="user-filling-data-2__items">
                         <li className="list-item user-filling-data-2__item-1 display_flex_yes">
                             <span className="option-name text_grey_yes">Плательщик</span>
@@ -24,11 +25,11 @@ class YourBankPaymentForm extends YourBankValidation {
                         </li>
                         <li className="list-item user-filling-data-2__item-2 display_flex_yes">
                             <span className="option-name text_grey_yes">БИК</span>
-                            <input
+                            <InputMask
                                 type="tel" 
                                 className="item__input-value item-2__input-value text_bold_yes"
                                 name="bik"
-                                maxLength="9"
+                                mask="999999999"
                                 pattern="\d{9}"
                                 value={this.state.bik}
                                 onChange={this.handleUserInput}
@@ -37,11 +38,11 @@ class YourBankPaymentForm extends YourBankValidation {
                         <li className="list-item user-filling-data-2__item-3 display_flex_yes">
                             <span className="option-name text_grey_yes">Номер счёта</span>
                             <div className="item-3__arrow-bottom-wrapper">
-                                <input
+                                <InputMask
                                     type="tel"
                                     className="item__input-value item-3__input-value text_bold_yes"
                                     name="accountNumber"
-                                    maxLength="20"
+                                    mask="99999999999999999999"
                                     pattern="\d{20}"
                                     value={this.state.accountNumber}
                                     onChange={this.handleUserInput}

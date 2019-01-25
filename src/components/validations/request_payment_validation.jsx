@@ -16,8 +16,8 @@ class RequestPaymentValidation extends Validation {
         accountNumberValid: false,
         VATtypeValid: true,
         sumValid: false,
-        phoneValid: false,
-        mailValid: false,
+        phoneValid: true,
+        mailValid: true,
 
         formValid: false
     };
@@ -54,7 +54,7 @@ class RequestPaymentValidation extends Validation {
     validateForm() {
         this.setState({
             formValid: this.state.payerValid && this.state.bikValid && this.state.accountNumberValid &&
-                        this.state.VATtypeValid && this.state.sumValid
+                        this.state.VATtypeValid && this.state.sumValid && this.state.phoneValid && this.state.mailValid
         })
     }
 

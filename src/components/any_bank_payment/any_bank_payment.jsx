@@ -1,4 +1,5 @@
 import React from 'react';
+import InputMask from 'react-input-mask';
 import './any_bank_payment.css';
 import visa from './svg_images/visa.svg';
 import mc1 from './svg_images/mastercard.svg';
@@ -9,7 +10,7 @@ class AnyBankPaymentForm extends AnyBankValidation {
     render() {
         return (
             <section className="main-content__user-filling-data-1">
-                <form className="card-data__input-fields" method="post">
+                <form action="/any_bank_payment" className="card-data__input-fields" method="post">
                     <div className="user-filling-data__credit-card">
                         <div className="card-icons">
                             <img className="card-icon card-icon-1" src={visa} alt="Visa"/>
@@ -18,12 +19,13 @@ class AnyBankPaymentForm extends AnyBankValidation {
                         </div>
                         <div className="card-data__input">
                             <div className="card-number card__fill-area">
-                                <input
+                                <InputMask
                                     type="tel"
                                     className="card-number__input card__input"
                                     name="card-number"
-                                    maxLength="16"
-                                    pattern="\d{16}"
+                                    // maxLength="16"
+                                    mask="9999 9999 9999 9999"
+                                    pattern="\d{4} \d{4} \d{4} \d{4}"
                                     placeholder="Введите номер карты"
                                     defaultValue={this.state.cardNumber}
                                     onChange={this.handleUserInput}
@@ -33,11 +35,12 @@ class AnyBankPaymentForm extends AnyBankValidation {
                                 </div>
                             </div>
                             <div className="card-issue-date card__fill-area">
-                                <input
+                                <InputMask
                                     type="text"
                                     className="card-issue-date__input card__input"
                                     name="card-issue-date"
-                                    maxLength="5"
+                                    // maxLength="5"
+                                    mask="99/99"
                                     pattern="\d{2}/\d{2}"
                                     placeholder="ММ/ГГ"
                                     defaultValue={this.state.cardIssueDate}

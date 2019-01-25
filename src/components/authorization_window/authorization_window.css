@@ -1,0 +1,75 @@
+.root-wrapper
+{
+    text-align: center;
+    margin: auto;
+}
+
+.header
+{
+    margin: 30px;
+}
+
+.header__title
+{
+    font-size: 38px;
+}
+
+.header__info
+{
+    margin: 40px;
+    padding: 10px;
+}
+
+.input-form
+{
+    padding: 10px;
+}
+
+.input-wrapper-block
+{
+    width: 250px;
+
+    margin: 30px auto;
+    position: relative;
+}
+
+.login__input,
+.password__input
+{
+    width: 250px;
+
+    display: block;
+    margin: 20px auto;
+    padding: 5px;
+
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.login__input:invalid ~ .error-handler,
+.password__input:invalid ~ .error-handler
+{
+    display: block;
+}
+
+.error-handler
+{
+    color: #f00;
+    font-size: 14px;
+
+    position: absolute;
+    left: 5%;
+    top: 100%;
+
+    display: none;
+}
+
+.error-handler::before
+{
+    content: '*';
+}
+
+.input-wrapper-block .button-item
+{
+    margin: 40px 10% 20px auto;
+}

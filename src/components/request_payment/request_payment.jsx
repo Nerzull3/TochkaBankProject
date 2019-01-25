@@ -1,4 +1,5 @@
 import React from 'react';
+import InputMask from 'react-input-mask';
 import './request_payment.css';
 import user from '../database/users';
 import RequestPaymentValidation from '../validations/request_payment_validation';
@@ -11,7 +12,7 @@ class RequestPaymentForm extends RequestPaymentValidation {
                 <h3 className="user-filling-data-3__headline">
                     Создайте платёжку, а<span className="title__name">{user.name}</span>подпишет её у себя в интернет-банке
                 </h3>
-                <form method="post">
+                <form action="/request_payment" method="post">
                     <ul className="user-filling-data-3__items">
                         <li className="list-item user-filling-data-3__item-1 display_flex_yes">
                             <span className="option-name text_grey_yes">Плательщик</span>
@@ -28,11 +29,11 @@ class RequestPaymentForm extends RequestPaymentValidation {
                         </li>
                         <li className="list-item user-filling-data-3__item-2 display_flex_yes">
                             <span className="option-name text_grey_yes">БИК</span>
-                            <input
+                            <InputMask
                                 type="text"
                                 className="item__input-value item-2__input-value text_bold_yes"
                                 name="bik"
-                                maxLength="9"
+                                mask="999999999"
                                 pattern="\d{9}"
                                 value={this.state.bik}
                                 onChange={this.handleUserInput}
@@ -41,11 +42,11 @@ class RequestPaymentForm extends RequestPaymentValidation {
                         <li className="list-item user-filling-data-3__item-3 display_flex_yes">
                             <span className="option-name text_grey_yes">Номер счёта</span>
                             <div className="item-3__arrow-bottom-wrapper">
-                                <input
+                                <InputMask
                                     type="tel"
                                     className="item__input-value item-3__input-value text_bold_yes"
                                     name="accountNumber"
-                                    maxLength="20"
+                                    mask="99999999999999999999"
                                     pattern="\d{20}"
                                     value={this.state.accountNumber}
                                     onChange={this.handleUserInput}
@@ -100,12 +101,12 @@ class RequestPaymentForm extends RequestPaymentValidation {
                         </li>
                         <li className="list-item user-filling-data-3__item-6 display_flex_yes">
                             <span className="option-name text_grey_yes">Телефон</span>
-                            <input
+                            <InputMask
                                 type="tel"
                                 className="item__input-value item-6__input-value text_bold_yes"
                                 name="phone"
-                                maxLength="12"
-                                pattern="+7\d{11}"
+                                mask="+7 (999) 999-99-99"
+                                pattern="+7 (\d{3}) \d{3}-\d{2}-\d{2}"
                                 value={this.state.phone}
                                 onChange={this.handleUserInput}
                             />

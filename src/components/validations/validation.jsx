@@ -14,7 +14,7 @@ class Validation extends Component {
     validateField() {}
 
     validateCardNumber(value) {
-        return /\d{16}/.test(value);
+        return /\d{4} \d{4} \d{4} \d{4}/.test(value);
     }
 
     validateCardIssueDate(value) {
@@ -40,7 +40,7 @@ class Validation extends Component {
     }
 
     validateMail(value) {
-        return /.+@\w+\.(ru|com)/.test(value) || value.length === 0;
+        return /.+?@\w+?\.(ru|com)/.test(value) || value.length === 0;
     }
 
     validatePayer(value) {
@@ -56,7 +56,7 @@ class Validation extends Component {
     }
 
     validatePhone(value) {
-        return /\+7\d{10}/.test(value);
+        return /\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}/.test(value);
     }
 
     setVAT(index) {
