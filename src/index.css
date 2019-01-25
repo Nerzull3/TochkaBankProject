@@ -62,15 +62,38 @@ body
     box-shadow: 0 0 5px 1px black;
 }
 
-.button-type-2
-{
-    height: 40px;
 
-    padding: 10px;
+.button-item
+{
+    position: relative;
+    width: 220px;
+    height: 60px;
+
+    margin-top: 20px;
+    padding-left: 10px;
+
+    background-image: url(./images/pay/button-back.png);
+    background-repeat: no-repeat;
+    background-size: 220px 60px;
 }
 
-.button-type-2:hover:not(:disabled)
+.button-item__pay-button
 {
+    width: 180px;
+    height: 46px;
+
+    border: 2px solid #000;
+    background-color: rgba(0, 0, 0, 0);
+
+    font-weight: 600;
+    font-size: 14px;
+
+    transition-duration: 1s;
+}
+
+.button-item__pay-button:hover:not(:disabled)
+{
+    background-color: #fff;
     cursor: pointer;
 }
 

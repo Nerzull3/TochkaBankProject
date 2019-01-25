@@ -26,7 +26,7 @@ class AnyBankValidation extends Validation {
                 this.state.cardIssueDateValid = this.validateCardIssueDate(value);
                 break;
             case 'card-cvc':
-                this.state.cardCVCValid = this.validateCardCVC();
+                this.state.cardCVCValid = this.validateCardCVC(value);
                 break;
             case 'sum':
                 this.state.sumValid = this.validateSum(value);
