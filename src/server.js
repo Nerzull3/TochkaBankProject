@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 5000;
+const cardPayment = require("./scripts/card_payments");
+const requestPayment = require("./scripts/request_payments");
 
 mongoose.connect(
     'mongodb+srv://Integro:Nerzull3@users-zwfoq.mongodb.net/test?retryWrites=true',
@@ -14,6 +16,14 @@ mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', console.log.bind(console, 'We are connected successlfully!'));
+
+const collection = db.collection('test_models');
+let result = {};
+const element = new Promise((res, rej) => {
+    result = collection.findOne({name: 'Белов Виктор Сергеевич'})
+});
+
+console.log('e is ' + result);
 
 // const User = mongoose.model(
 //     'test_model',
@@ -44,19 +54,26 @@ db.once('open', console.log.bind(console, 'We are connected successlfully!'));
 // testRecord.save();
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
+app.post("/auth_window", urlencodedParser, function (request, response) {
+    console.log(request.body);
+    const result = QueryHandler.handleAuthorization(request.body);
+    console.log(result);
+    response.send('<h1>Good Job!</h1>');
+})
+
 app.post("/any_bank_payment", urlencodedParser, function (request, response) {
     QueryHandler.handleAnyBankQuery(request, response);
-    //response.sendFile();
+    
 });
 
 app.post("/your_bank_payment", urlencodedParser, function (request, response) {
     QueryHandler.handleYourBankQuery(request, response);
-    //response.sendFile();
+    
 });
 
 app.post("/request_payment", urlencodedParser, function (request, response) {
     QueryHandler.handleRequestPaymentQuery(request, response);
-    //response.sendFile();
+    
 });
 
 // create a GET route

@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './authorization_window.css';
 
 class AuthWindow extends Component {
+    state = {
+        login: '',
+        password: ''
+    };
+
     render() {
         return (
             <div className="root-wrapper">
@@ -11,7 +16,7 @@ class AuthWindow extends Component {
                     <p className="header__info">Авторизуйтесь, чтобы начать работу</p>
                 </header>
                 <main className="main-window">
-                    <form action="/log_in" className="input-form" method="post">
+                    <form action="/auth_window" className="input-form" method="post">
                         <div className="input-wrapper-block">
                             <input
                                 type="email"

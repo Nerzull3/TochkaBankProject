@@ -52,23 +52,6 @@
     display: block;
 }
 
-.error-handler
-{
-    color: #f00;
-    font-size: 14px;
-
-    position: absolute;
-    left: 5%;
-    top: 100%;
-
-    display: none;
-}
-
-.error-handler::before
-{
-    content: '*';
-}
-
 .input-wrapper-block .button-item
 {
     margin: 40px 10% 20px auto;

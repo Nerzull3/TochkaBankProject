@@ -8,7 +8,7 @@ import AuthWindow from '../authorization_window/authorisation_window';
 
 class App extends Component {
     state = {
-        autorization: true
+        authorization: false
     };
 
     render() {
