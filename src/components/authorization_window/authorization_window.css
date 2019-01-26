@@ -22,6 +22,9 @@
 
 .input-form
 {
+    width: 400px;
+
+    margin: auto;
     padding: 10px;
 }
 
@@ -52,7 +55,12 @@
     display: block;
 }
 
-.input-wrapper-block .button-item
+.input-wrapper-block .error-handler
 {
-    margin: 40px 10% 20px auto;
+    top: 110%;
+}
+
+.input-form .button-item
+{
+    margin-left: 45px;
 }
