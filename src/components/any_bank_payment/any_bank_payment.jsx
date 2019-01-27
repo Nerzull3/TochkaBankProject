@@ -22,7 +22,7 @@ class AnyBankPaymentForm extends AnyBankValidation {
                                 <InputMask
                                     type="tel"
                                     className="card-number__input card__input"
-                                    name="card-number"
+                                    name="cardNumber"
                                     // maxLength="16"
                                     mask="9999 9999 9999 9999"
                                     pattern="\d{4} \d{4} \d{4} \d{4}"
@@ -38,7 +38,7 @@ class AnyBankPaymentForm extends AnyBankValidation {
                                 <InputMask
                                     type="text"
                                     className="card-issue-date__input card__input"
-                                    name="card-issue-date"
+                                    name="cardIssueDate"
                                     // maxLength="5"
                                     mask="99/99"
                                     pattern="\d{2}/\d{2}"
@@ -54,7 +54,7 @@ class AnyBankPaymentForm extends AnyBankValidation {
                                 <input
                                     type="tel"
                                     className="card-cvc__input card__input"
-                                    name="card-cvc"
+                                    name="cardCVC"
                                     maxLength="3"
                                     pattern="\d{3}"
                                     placeholder="CVC"

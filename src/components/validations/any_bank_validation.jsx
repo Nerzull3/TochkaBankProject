@@ -19,13 +19,13 @@ class AnyBankValidation extends Validation {
 
     validateField(field, value) {
         switch(field) {
-            case 'card-number':
+            case 'cardNumber':
                 this.state.cardNumberValid = this.validateCardNumber(value);
                 break;
-            case 'card-issue-date':                
+            case 'cardIssueDate':                
                 this.state.cardIssueDateValid = this.validateCardIssueDate(value);
                 break;
-            case 'card-cvc':
+            case 'cardCVC':
                 this.state.cardCVCValid = this.validateCardCVC(value);
                 break;
             case 'sum':

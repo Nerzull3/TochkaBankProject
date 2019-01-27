@@ -5,16 +5,20 @@ import Payment from '../payment';
 import InfoAboutCompany from '../info_about_company/info_about_company';
 import FooterContent from '../footer/footer';
 import AuthWindow from '../authorization_window/authorisation_window';
+import AdminPanel from '../admin_panel/admin_panel';
+
+// let auth = true;
 
 class App extends Component {
     state = {
-        authorization: false
+        authorization: true
     };
 
     render() {
         return (
             <div className="main-wrapper">
-                {!this.state.autorization ?
+                {/* <AdminPanel /> */}
+                {!this.state.authorization ?
                 <div>
                     <AuthWindow />
                     <FooterContent />

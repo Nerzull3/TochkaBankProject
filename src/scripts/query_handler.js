@@ -1,21 +1,39 @@
 const Authorization = require('./authorization');
 
+const cardPayment = require("./card_payments");
+const requestPayment = require("./request_payments");
+const authModel = require("./auth_model");
+const mongoose = require("mongoose");
+
 class QueryHandler {
-    static handleAuthorization(request) {
+    static handleAuthorization(request, response) {
         if (!request) {
             return false;
         }
         const [login, password] = [request.login, request.password];
-        console.log(login, password);
-        // отправить на проверку в БД
-        // TODO
+        console.log();
         const hash = 'e7c8fe2c9ed4061fa22a8e1341717925';
-        const auth = new Authorization();
-        if (auth.compare(password, hash)) {
-            return true;
-        }
+        console.log(QueryHandler.checkUser(login, password));
+        // if (auth.compare(password, hash)) {
+        //     return true;
+        // }
 
-        return false;
+        // return false;
+    }
+
+    static checkUser(login, password) {
+        const auth = new Authorization();
+        return authModel
+            .findOne({'login': login})
+            .then(doc => {
+                if (doc.passwordHash === auth.compare(password)) {
+                    console.log("User password is ok");
+                    return Promise.resolve(doc);
+                }
+
+                console.log('No:(');
+                return Promise.reject("Error wrong");
+            })
     }
 
     static handleAnyBankQuery(request, response) {
@@ -23,27 +41,28 @@ class QueryHandler {
             return response.statusCode(400);
         }
 
-
-
-        for (const prop of Object.keys(request.body)) {
-            const element = request.body[prop];
-            console.log(prop, element);
-        }
-
-        return response.send('Good job!');
+        const payment = new cardPayment(Object.assign(request.body, {_id: new mongoose.Types.ObjectId()}));
+        payment.save();
+        response.status(200).send('Good job!');
     }
 
     static handleYourBankQuery(request, response) {
-        if (!request.body) {
-            return response.statusCode(400);
+        const body = request.body;
+        if (!body) {
+            response.statusCode(400);
+            return;
         }
 
-        for (const prop of Object.keys(request.body)) {
-            const element = request.body[prop];
-            console.log(prop, element);
-        }
-
-        return response.send('Good job!');
+        response.attachment(`payment.txt`);
+        response.send(
+            `Платёж от ${new Date(Date.now())}\r\n\r\n
+            ИНН отправителя: ${body.payer}\r\n
+            БИК отправителя: ${body.bik}\r\n
+            Номер счёта: ${body.accountNumber}\r\n
+            В том числе: ${body.VATtype}\r\n
+            Сумма платежа: ${body.sum}\r\n\r\n\r\n                                     Подпись: ________`
+        );
+        response.status(200).send('Good job!');
     }
 
     static handleRequestPaymentQuery(request, response) {
@@ -51,12 +70,9 @@ class QueryHandler {
             return response.statusCode(400);
         }
 
-        for (const prop of Object.keys(request.body)) {
-            const element = request.body[prop];
-            console.log(prop, element);
-        }
-
-        return response.send('Good job!');
+        const payment = new requestPayment(Object.assign(request.body, {_id: new mongoose.Types.ObjectId()}));
+        payment.save();
+        response.status(200).send('Good job!');
     }
 }
 

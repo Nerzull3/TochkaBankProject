@@ -9,7 +9,7 @@ module.exports = class Authorization {
             .toString('hex');
     }
 
-    static compare(password, hash) {
+    compare(password, hash) {
         console.log(this.encodePassword(password));
         return this.encodePassword(password) === hash;
     }

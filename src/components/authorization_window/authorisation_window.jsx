@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import './authorization_window.css';
 
 class AuthWindow extends Component {
-    state = {
-        login: '',
-        password: ''
-    };
-
     render() {
         return (
             <div className="root-wrapper">
