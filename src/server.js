@@ -15,21 +15,19 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', console.log.bind(console, 'We are connected successlfully!'));
 
-console.log(Object.keys(db.collections));
-console.log(Object.keys(db.models));
-
 const urlencodedParser = bodyParser.urlencoded({extended: false});
+let isAuthorized = false;
 
 app.use(require("./scripts/api"));
 
-app.post("/auth_window", urlencodedParser, function (request, response) {
-    const result = QueryHandler.handleAuthorization(request.body, response);
-    console.log(result);
-    if (result) {
-        response.send(result);
+app.post("/auth_window", urlencodedParser, async function (request, response) {
+    isAuthorized = await QueryHandler.handleAuthorization(request.body, response);
+    console.log('RESULT IS HERE!');
+    if (isAuthorized) {
+        response.send(isAuthorized);
     }
     else {
-        response.send('No');
+        response.redirect('/auth_window');
     }
 })
 
@@ -46,3 +44,5 @@ app.post("/request_payment", urlencodedParser, function (request, response) {
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+module.exports = isAuthorized;

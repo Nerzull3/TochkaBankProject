@@ -1,39 +1,28 @@
-const Authorization = require('./authorization');
+const compare = require('./authorization');
 
 const cardPayment = require("./card_payments");
 const requestPayment = require("./request_payments");
 const authModel = require("./auth_model");
-const mongoose = require("mongoose");
 
 class QueryHandler {
     static handleAuthorization(request, response) {
         if (!request) {
-            return false;
+            return Promise.resolve(false);
         }
         const [login, password] = [request.login, request.password];
-        console.log();
-        const hash = 'e7c8fe2c9ed4061fa22a8e1341717925';
-        console.log(QueryHandler.checkUser(login, password));
-        // if (auth.compare(password, hash)) {
-        //     return true;
-        // }
-
-        // return false;
+        return QueryHandler.checkUser(login, password);
     }
 
     static checkUser(login, password) {
-        const auth = new Authorization();
         return authModel
-            .findOne({'login': login})
-            .then(doc => {
-                if (doc.passwordHash === auth.compare(password)) {
-                    console.log("User password is ok");
-                    return Promise.resolve(doc);
+            .findOne({ login: login })
+            .then(user => {
+                if (!user || !compare(password, user.passwordHash)) {
+                    return Promise.resolve(false);
                 }
 
-                console.log('No:(');
-                return Promise.reject("Error wrong");
-            })
+                return Promise.resolve(true);
+            });
     }
 
     static handleAnyBankQuery(request, response) {
@@ -41,7 +30,7 @@ class QueryHandler {
             return response.statusCode(400);
         }
 
-        const payment = new cardPayment(Object.assign(request.body, {_id: new mongoose.Types.ObjectId()}));
+        const payment = new cardPayment(request.body);
         payment.save();
         response.status(200).send('Good job!');
     }
@@ -70,7 +59,7 @@ class QueryHandler {
             return response.statusCode(400);
         }
 
-        const payment = new requestPayment(Object.assign(request.body, {_id: new mongoose.Types.ObjectId()}));
+        const payment = new requestPayment(request.body);
         payment.save();
         response.status(200).send('Good job!');
     }
