@@ -4,6 +4,7 @@ import Navigation from './navigation/navigation';
 import AnyBankPaymentForm from './any_bank_payment/any_bank_payment';
 import YourBankPaymentForm from './your_bank_payment/your_bank_payment';
 import RequestPaymentForm from './request_payment/request_payment';
+import AdminPanel from './admin_panel/admin_panel';
 
 class Payment extends Component {
     render() {
@@ -12,6 +13,7 @@ class Payment extends Component {
                 <div className="wrapper">
                     <Navigation />
                     <Switch>
+                        <Route path="/admin-panel" component={AdminPanel} />
                         <Route exact path="/" component={AnyBankPaymentForm} />
                         <Route path="/payment/any_bank_payment" component={AnyBankPaymentForm} />
                         <Route path="/payment/your_bank_payment" component={YourBankPaymentForm} />

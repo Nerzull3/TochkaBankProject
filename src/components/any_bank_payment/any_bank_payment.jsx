@@ -10,7 +10,7 @@ class AnyBankPaymentForm extends AnyBankValidation {
     render() {
         return (
             <section className="main-content__user-filling-data-1">
-                <form action="/any_bank_payment" className="card-data__input-fields" method="post">
+                <form action="/card-payment" className="card-data__input-fields" method="post">
                     <div className="user-filling-data__credit-card">
                         <div className="card-icons">
                             <img className="card-icon card-icon-1" src={visa} alt="Visa"/>

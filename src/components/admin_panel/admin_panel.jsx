@@ -56,7 +56,7 @@ class AdminPanel extends Component {
     };
     render() {
         return (
-        <div>
+        <div className="admin-panel">
             <div className="navigation">
             <button
                 className="navigation__button"

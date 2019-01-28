@@ -1,4 +1,4 @@
-.header-options
+/* .header-options
 {
     height: 100px;
     background-color: aliceblue;
@@ -13,9 +13,18 @@
 .options-wrapper > span
 {
     margin: 0 5px;
+} */
+
+@media screen and (max-width: 1200px)
+{
+    .admin-panel
+    {
+        display: none;
+    }
 }
 
-.table {
+.table
+{
     display: table;
     border-collapse: collapse;
     margin: 30px auto 0 auto;
@@ -23,47 +32,57 @@
     animation-duration: 1s;
 }
 
-.table__row {
+.table__row
+{
     display: table-row;
 }
 
-.table__cell {
+.table__cell
+{
     display: table-cell;
     text-align: center;
     padding: 2px 10px;
     border: 1px solid #ccc;
 }
 
-.table__key {
+.table__key
+{
     background-color: #4879ff4f;
 }
-.navigation {
+.navigation
+{
     text-align: center;
 }
-.navigation__forms {
+.navigation__forms
+{
     justify-content: center;
     margin: 20px 20px;
 }
 
-.navigation__form {
+.navigation__form
+{
     width: 80%;
     margin: 0 auto;
     text-align: center;
 }
 
-.navigation__form > button {
+.navigation__form > button
+{
     min-width: 180px;
 }
-.navigation__form > input {
+.navigation__form > input
+{
     margin-right: 10px;
 }
 
-.navigation__button {
+.navigation__button
+{
     height: 40px;
     position: relative;
     top: -3px;
 }
 
-.untrusted {
+.untrusted
+{
     background-color: rgba(255, 0, 0, 0.466);
 }

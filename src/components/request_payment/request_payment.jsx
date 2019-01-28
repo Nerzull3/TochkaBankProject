@@ -12,7 +12,7 @@ class RequestPaymentForm extends RequestPaymentValidation {
                 <h3 className="user-filling-data-3__headline">
                     Создайте платёжку, а<span className="title__name">{user.name}</span>подпишет её у себя в интернет-банке
                 </h3>
-                <form action="/request_payment" method="post">
+                <form action="/request-payment" method="post">
                     <ul className="user-filling-data-3__items">
                         <li className="list-item user-filling-data-3__item-1 display_flex_yes">
                             <span className="option-name text_grey_yes">Плательщик</span>

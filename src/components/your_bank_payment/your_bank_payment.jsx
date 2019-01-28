@@ -8,7 +8,7 @@ class YourBankPaymentForm extends YourBankValidation {
         return (
             <section className="main-content__user-filling-data-2">
                 <h3 className="user-filling-data-2__headline">Сформируйте платёжку и загрузите её в свой банк для подписи</h3>
-                <form action="/your_bank_payment" method="post">
+                <form action="/your-bank-payment" method="post">
                     <ul className="user-filling-data-2__items">
                         <li className="list-item user-filling-data-2__item-1 display_flex_yes">
                             <span className="option-name text_grey_yes">Плательщик</span>

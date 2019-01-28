@@ -42,6 +42,17 @@ function get(model) {
     };
 }
 
+function markUntrusted(model) {
+    return (req, res) => {
+        console.log(req.body);
+        model
+            .findOneAndUpdate({ _id: req.body.id }, { trusted: false })
+            .exec()
+            .then(docs => { res.status(200).json(docs); })
+            .catch(err => { res.status(400).json({ error: err }); });
+    };
+}
+
 router.get("/api/card-payment", get(cardPayment));
 router.get("/api/request-payment", get(requestPayment));
 router.get("/api/auth", get(authModel));
